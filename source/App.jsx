@@ -663,7 +663,7 @@ function ContactPage({ wide }){
     const data = new URLSearchParams({ "form-name":"contact", ...msg });
     fetch("/", { method:"POST", headers:{ "Content-Type":"application/x-www-form-urlencoded" }, body:data.toString() })
       .then(()=>setSent(true))
-      .catch(()=>alert("Sorry, something went wrong. Please email coach@newburghice.com."));
+      .catch(()=>alert("Sorry, something went wrong. Please email eric@yardnewburgh.com."));
   };
   return (
     <div>
@@ -675,7 +675,7 @@ function ContactPage({ wide }){
           <div style={{ position:"relative", zIndex:1 }}>
             <Tag>Head Coach</Tag>
             <div style={{ fontFamily:F.d, fontSize:32, color:C.white, fontStyle:"italic", textTransform:"uppercase", margin:"12px 0 18px" }}>{TEAM.coach}</div>
-            {[["Email","coach@newburghice.com"],["Phone","(555) 867-5309"],["Home Field","Riverside Park, Field 2"]].map(([k,v])=>(
+            {[["Email","eric@yardnewburgh.com"],["Phone","812-249-0564"]].map(([k,v])=>(
               <div key={k} style={{ marginBottom:14 }}>
                 <div style={{ fontFamily:F.b, fontSize:10.5, fontWeight:800, letterSpacing:1.5, color:C.cyan, textTransform:"uppercase" }}>{k}</div>
                 <div style={{ fontFamily:F.b, fontSize:15, color:C.ice, marginTop:3, fontWeight:600 }}>{v}</div>
