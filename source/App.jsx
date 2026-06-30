@@ -517,24 +517,6 @@ function RosterPage({ wide }){
 }
 
 function TryoutsPage({ wide }){
-  const [registered,setRegistered] = useState(false);
-  const [form,setForm] = useState({ name:"", dob:"", pos:"", email:"", phone:"", prev:"" });
-  const set = k => e => setForm({ ...form, [k]:e.target.value });
-  const submit = () => { if(!form.name||!form.email) return alert("Please fill in player name and parent email."); setRegistered(true); };
-  if(registered){
-    return (
-      <div style={{ textAlign:"center", padding:"50px 20px", maxWidth:480, margin:"0 auto" }}>
-        <div style={{ fontFamily:F.d, fontSize:64, color:C.cyan, fontStyle:"italic" }}>✓</div>
-        <div style={{ fontFamily:F.d, fontSize:34, color:C.white, fontStyle:"italic", textTransform:"uppercase", marginTop:8 }}>You're Registered</div>
-        <div style={{ fontFamily:F.b, color:C.muted, fontSize:15, lineHeight:1.7, marginTop:12 }}>
-          Confirmation sent to <strong style={{ color:C.ice }}>{form.email}</strong>. Check-in starts 15 minutes before your session — see you on the field.
-        </div>
-        <div style={{ marginTop:26 }}>
-          <Button onClick={()=>{ setRegistered(false); setForm({ name:"",dob:"",pos:"",email:"",phone:"",prev:"" }); }}>Register Another Player</Button>
-        </div>
-      </div>
-    );
-  }
   return (
     <div>
       <SectionTitle sub="Newburgh Ice 9U — new season tryouts">Tryouts</SectionTitle>
@@ -598,14 +580,11 @@ function TryoutsPage({ wide }){
       </div>
 
       <SectionTitle>Register</SectionTitle>
-      <Panel style={{ maxWidth:560 }}>
-        <Field label="Player Full Name *" value={form.name} onChange={set("name")} placeholder="First Last" />
-        <Field label="Date of Birth *" type="date" value={form.dob} onChange={set("dob")} />
-        <Field label="Primary Position" value={form.pos} onChange={set("pos")} placeholder="e.g. Pitcher, Shortstop" />
-        <Field label="Parent Email *" type="email" value={form.email} onChange={set("email")} placeholder="parent@email.com" />
-        <Field label="Parent Phone" type="tel" value={form.phone} onChange={set("phone")} placeholder="(555) 555-5555" />
-        <Field label="Previous Travel Ball Experience" multiline rows={3} value={form.prev} onChange={set("prev")} placeholder="Teams played for, years of experience, highlights…" />
-        <Button full onClick={submit} style={{ marginTop:4 }}>Submit Registration</Button>
+      <Panel style={{ maxWidth:560, textAlign:"center", padding:"32px 24px" }}>
+        <div style={{ fontFamily:F.b, fontSize:14.5, color:C.muted, lineHeight:1.6, marginBottom:18 }}>
+          Complete the tryout registration form to reserve your player's spot — it only takes a minute.
+        </div>
+        <Button full onClick={()=>{ window.location.href="/tryout-signup.html"; }} style={{ marginTop:4 }}>Register for Tryouts →</Button>
       </Panel>
     </div>
   );
@@ -664,7 +643,13 @@ function ContactPage({ wide }){
   const [sent,setSent] = useState(false);
   const [msg,setMsg] = useState({ name:"", email:"", subject:"", body:"" });
   const set = k => e => setMsg({ ...msg, [k]:e.target.value });
-  const send = () => { if(!msg.name||!msg.email||!msg.body) return alert("Please fill in all required fields."); setSent(true); };
+  const send = () => {
+    if(!msg.name||!msg.email||!msg.body) return alert("Please fill in all required fields.");
+    const data = new URLSearchParams({ "form-name":"contact", ...msg });
+    fetch("/", { method:"POST", headers:{ "Content-Type":"application/x-www-form-urlencoded" }, body:data.toString() })
+      .then(()=>setSent(true))
+      .catch(()=>alert("Sorry, something went wrong. Please email coach@newburghice.com."));
+  };
   return (
     <div>
       <SectionTitle sub="Reach the coaching staff">Contact</SectionTitle>
