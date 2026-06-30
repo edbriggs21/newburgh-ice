@@ -275,7 +275,7 @@ function Ticker(){
   items.push({ k:"RECORD", v:`${rec.w}–${rec.l}${rec.t?`–${rec.t}`:""} · ${TEAM.season} Season`, tone:C.cyanBright });
   if(next) items.push({ k:"NEXT", v:`${next.date} · ${next.away?"@":"vs"} ${next.opponent}`, tone:C.cyanBright });
   results.slice(0,8).forEach(r=> items.push({ k: r.result.startsWith("W")?"WIN":r.result.startsWith("T")?"TIE":"LOSS", v:`${r.result} ${r.away?"@":"vs"} ${r.opponent}`, tone: r.result.startsWith("W")?C.green:r.result.startsWith("T")?C.amber:C.red }));
-  items.push({ k:"TRYOUTS", v:"Aug 3 & 4 · Registration open now", tone:C.cyan });
+  items.push({ k:"TRYOUTS", v:"Tue July 14 · 5:30 PM · Newburgh Girls Softball, Field 1 · Register now", tone:C.cyan });
   const Row = () => (
     <div style={{ display:"flex", alignItems:"center", flexShrink:0 }}>
       {items.map((it,i)=>(
@@ -390,6 +390,21 @@ function HomePage({ setTab, wide }){
       {/* UPCOMING */}
       <SectionTitle>Upcoming Events</SectionTitle>
       <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
+        <Panel hover onClick={()=>setTab("tryouts")} style={{ padding:"0", overflow:"hidden", display:"flex", alignItems:"stretch", cursor:"pointer" }}>
+          <div style={{ width:6, background:C.cyan, flexShrink:0 }} />
+          <div style={{ display:"flex", alignItems:"center", gap:16, padding:"14px 18px", flex:1, minWidth:0 }}>
+            <div style={{ textAlign:"center", flexShrink:0, minWidth:54 }}>
+              <div style={{ fontFamily:F.b, fontSize:11, fontWeight:800, letterSpacing:1.5, color:C.cyan, textTransform:"uppercase" }}>Jul</div>
+              <div style={{ fontFamily:F.d, fontSize:30, lineHeight:.85, color:C.white }}>14</div>
+            </div>
+            <div style={{ width:1, alignSelf:"stretch", background:C.line }} />
+            <div style={{ flex:1, minWidth:0 }}>
+              <div style={{ fontFamily:F.d, fontSize:19, color:C.white, fontStyle:"italic", textTransform:"uppercase", lineHeight:1 }}>9U Tryouts</div>
+              <div style={{ fontFamily:F.b, fontSize:13, color:C.muted, marginTop:5 }}>Tue · 5:30 PM · Newburgh Girls Softball, Field 1</div>
+            </div>
+            <Tag bg={C.cyan} fg={C.bg0}>Register</Tag>
+          </div>
+        </Panel>
         {upcoming.map(e=> <EventRow key={e.id} e={e} />)}
       </div>
     </div>
