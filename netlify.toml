@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+  command = ""
+
+[[redirects]]
+  from = "/portal"
+  to = "/newburgh-ice-portal.html"
+  status = 200
