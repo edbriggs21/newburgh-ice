@@ -761,6 +761,7 @@ function ScoresPage(){
 
 function App(){
   const [tab,setTab] = useState("home");
+  useEffect(()=>{ window.scrollTo(0,0); }, [tab]);
   const wide = useWide();
   const rec = getRecord();
   const pages = {
