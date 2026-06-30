@@ -117,11 +117,15 @@ const TRYOUT_INFO = {
   note: "Text or call with any questions or scheduling conflicts. Private tryouts available.",
 };
 const DRILLS = [
-  { title:"Bucket Drill",      skill:"Fielding", desc:"Coaches hit grounders to infield players in rapid succession. Focus on footwork, glove positioning, and quick release.", time:"15 min" },
-  { title:"Soft Toss Station", skill:"Hitting",  desc:"Partner tosses ball underhanded from the side. Hitter focuses on driving the ball through the zone with a level swing.", time:"10 min" },
-  { title:"Crow Hop Throws",   skill:"Throwing", desc:"Outfielders practice crow hop mechanics to build arm strength and accuracy on long throws to cutoff.", time:"10 min" },
-  { title:"Live BP",           skill:"Hitting",  desc:"Coach pitches live at 60–70% to simulate game situations. Batters called up with runners-on scenarios.", time:"20 min" },
-  { title:"Bunt Defense",      skill:"Fielding", desc:"Simulate bunt plays — charging third baseman, pitcher coverage, first baseman decisions. All rotations practiced.", time:"15 min" },
+  { title:"Tee Work",          skill:"Hitting",      desc:"Set a batting tee (or a cone or bucket) in the yard and hit into a fence or net. 3 sets of 10 — keep a level swing and watch the ball all the way to the tee.", time:"15 min" },
+  { title:"Mirror Swings",     skill:"Hitting",      desc:"Take slow swings in front of a mirror with no ball. Check your stance, grip, and full follow-through. Builds muscle memory anywhere.", time:"10 min" },
+  { title:"Wall Ball Grounders", skill:"Fielding",   desc:"Throw a tennis or rubber ball against a wall and field the grounder that comes back. Stay low, glove out front, two hands. 25 reps.", time:"10 min" },
+  { title:"Short Hops",        skill:"Fielding",     desc:"Bounce a ball off a wall (or have a parent toss it) and field the short hop. Soft hands — give a little as you catch. 20 reps.", time:"10 min" },
+  { title:"Pop-Up Catches",    skill:"Fielding",     desc:"Toss the ball straight up and catch it above your forehead with two hands. Call 'Ball!' every time. 15 catches.", time:"8 min" },
+  { title:"Wrist Flips",       skill:"Throwing",     desc:"On one knee about 10 feet from a wall, flip the ball using only your wrist. Look for clean backspin and a straight line. 20 reps.", time:"8 min" },
+  { title:"Crow Hop Throws",   skill:"Throwing",     desc:"Crow hop and throw into a net, fence, or to a parent. Step toward your target and follow through across your body. 15 throws.", time:"10 min" },
+  { title:"Quick-Feet Ladder", skill:"Conditioning", desc:"Make a chalk or tape ladder on the driveway. Two feet in each box, then in-and-out. Builds the quick first step for fielding and base running.", time:"10 min" },
+  { title:"Base Running",      skill:"Conditioning", desc:"Sprint a hard run-through past first base, then practice a banana turn around a cone toward second. 6 sprints at full speed.", time:"10 min" },
 ];
 const TABS = [
   { id:"home",     label:"Home",     ch:"H" },
@@ -629,7 +633,7 @@ function DrillsPage({ wide }){
   const tone = s => s==="Hitting"?C.amber : s==="Fielding"?C.cyan : C.green;
   return (
     <div>
-      <SectionTitle sub="Practice plans and skill development">Drills</SectionTitle>
+      <SectionTitle sub="At-home drills players can do on their own">Drills</SectionTitle>
       <div style={{ display:"flex", gap:9, marginBottom:24, flexWrap:"wrap" }}>
         {skills.map(s=> <Chip key={s} active={filter===s} onClick={()=>setFilter(s)}>{s}</Chip>)}
       </div>
