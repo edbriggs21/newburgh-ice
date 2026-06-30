@@ -612,45 +612,13 @@ function TryoutsPage({ wide }){
 }
 
 function BillingPage({ wide }){
-  const total = BILLING.reduce((s,b)=>s+b.amount,0);
-  const paid = PLAYERS.filter(p=>p.paid).length;
   return (
     <div>
-      <SectionTitle sub="Fees, payment status, and fundraising">Team Billing</SectionTitle>
-      <div style={{ display:"flex", gap:12, marginBottom:26, flexWrap:"wrap" }}>
-        <StatTile value={`$${total}`} label="Season Total" accent={C.cyan} />
-        <StatTile value={paid} label="Paid Up" accent={C.green} />
-        <StatTile value={PLAYERS.length-paid} label="Outstanding" accent={C.red} />
-      </div>
-
-      <SectionTitle>Fee Breakdown</SectionTitle>
-      <div style={{ display:"grid", gridTemplateColumns: wide?"1fr 1fr":"1fr", gap:13, marginBottom:30 }}>
-        {BILLING.map(b=>(
-          <Panel key={b.id} hover style={{ display:"flex", justifyContent:"space-between", alignItems:"center", gap:14 }}>
-            <div style={{ minWidth:0 }}>
-              <div style={{ fontFamily:F.b, fontWeight:800, fontSize:16, color:C.white }}>{b.desc}</div>
-              <div style={{ fontFamily:F.b, fontSize:12.5, color:C.muted, marginTop:3 }}>Due {b.due} · {b.notes}</div>
-            </div>
-            <div style={{ fontFamily:F.d, fontSize:32, color:C.cyan, fontStyle:"italic", flexShrink:0 }}>${b.amount}</div>
-          </Panel>
-        ))}
-      </div>
-
-      <SectionTitle>Payment Status</SectionTitle>
-      <div style={{ display:"grid", gridTemplateColumns: wide?"1fr 1fr":"1fr", gap:11, marginBottom:30 }}>
-        {PLAYERS.map(p=>(
-          <Panel key={p.id} style={{ display:"flex", justifyContent:"space-between", alignItems:"center", gap:12, padding:"13px 16px" }}>
-            <div style={{ display:"flex", alignItems:"center", gap:13, minWidth:0 }}>
-              <span style={{ width:38, height:38, flexShrink:0, transform:"skewX(-8deg)", background:C.bg1, border:`1px solid ${C.line}`,
-                display:"flex", alignItems:"center", justifyContent:"center", borderRadius:9 }}>
-                <span style={{ transform:"skewX(8deg)", fontFamily:F.d, fontSize:17, color:C.cyan }}>{p.number}</span>
-              </span>
-              <span style={{ fontFamily:F.b, fontWeight:700, fontSize:15, color:C.white }}>{p.name}</span>
-            </div>
-            <Tag bg={p.paid?C.green:C.red} fg={C.bg0}>{p.paid?"✓ Paid":"Balance Due"}</Tag>
-          </Panel>
-        ))}
-      </div>
+      <SectionTitle sub="Fundraising and team updates">Team Billing</SectionTitle>
+      <Panel style={{ textAlign:"center", padding:"40px 24px", marginBottom:30 }}>
+        <div style={{ fontFamily:F.d, fontSize:34, color:C.cyan, fontStyle:"italic", textTransform:"uppercase", letterSpacing:1 }}>No Fees at This Time</div>
+        <div style={{ fontFamily:F.b, fontSize:14, color:C.muted, marginTop:8 }}>There are currently no team fees or balances — any future costs will be posted here.</div>
+      </Panel>
 
       <SectionTitle>Fundraisers</SectionTitle>
       <Panel style={{ textAlign:"center", padding:"40px 24px" }}>
