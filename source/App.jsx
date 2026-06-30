@@ -87,10 +87,10 @@ const PLAYERS = [
   { id:12, name:"Brynlee Maddle", number:88, back:"Maddle", email:"", paid:false },
 ];
 const BILLING = [
-  { id:1, desc:"Spring Season Fee",  amount:450, due:"Mar 1",  notes:"Covers uniforms, tournament entry, field fees" },
-  { id:2, desc:"Tournament Package", amount:200, due:"Apr 15", notes:"State qualifier + 2 invitational tournaments" },
-  { id:3, desc:"Equipment Fund",     amount:75,  due:"Mar 1",  notes:"Shared helmets, catcher gear, bases" },
-  { id:4, desc:"Team Apparel",       amount:120, due:"Mar 15", notes:"Practice shirts, sweatshirt, bag" },
+  { id:1, desc:"Spring Season Fee",  amount:0, due:"Mar 1",  notes:"Covers uniforms, tournament entry, field fees" },
+  { id:2, desc:"Tournament Package", amount:0, due:"Apr 15", notes:"State qualifier + 2 invitational tournaments" },
+  { id:3, desc:"Equipment Fund",     amount:0,  due:"Mar 1",  notes:"Shared helmets, catcher gear, bases" },
+  { id:4, desc:"Team Apparel",       amount:0, due:"Mar 15", notes:"Practice shirts, sweatshirt, bag" },
 ];
 const FUNDRAISERS = [
   { id:1, name:"Cookie Dough Sale", goal:3000, raised:1240, end:"Jul 15", status:"Active" },
