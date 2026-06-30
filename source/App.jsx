@@ -835,7 +835,6 @@ function App(){
           <div style={{ background:C.bg2, border:`1px solid ${C.line}`, borderRadius:12, padding:"14px 16px", marginTop:12 }}>
             <div style={{ fontFamily:F.b, fontSize:10, fontWeight:800, letterSpacing:1.5, color:C.muted, textTransform:"uppercase" }}>{TEAM.season} Record</div>
             <div style={{ fontFamily:F.d, fontSize:30, color:C.white, fontStyle:"italic", lineHeight:1, marginTop:4 }}>{rec.w}<span style={{ color:C.mutedDk }}>–</span>{rec.l}{rec.t>0 && <span style={{ color:C.mutedDk }}>{`–${rec.t}`}</span>}</div>
-            <div style={{ fontFamily:F.b, fontSize:12, color:C.cyan, marginTop:4 }}>{TEAM.coach}</div>
           </div>
         </aside>
       )}
