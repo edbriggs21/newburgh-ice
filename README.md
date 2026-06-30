@@ -154,8 +154,10 @@ form from the JSX. Standard fix:
 
 - `tryout-qr.png` / `tryout-qr-flyer.png` — point to the **public tryout** site
   (https://newburgh-ice-tryouts.netlify.app). **Use these on the tryout flyer.** Verified.
-- `newburgh-ice-qr.png` / `newburgh-ice-qr-flyer.png` — point to the **password-protected
-  team portal**. Only share with current families who have the password.
+- `newburgh-ice-qr.png` / `newburgh-ice-qr-flyer.png` — point to **https://www.newburghice.com**
+  (the custom domain being connected to the password-protected team portal). Works once
+  newburghice.com is purchased + connected in Netlify. Only share with current families
+  who have the password.
 
 ## Known TODOs / placeholders
 

@@ -117,15 +117,15 @@ const TRYOUT_INFO = {
   note: "Text or call with any questions or scheduling conflicts. Private tryouts available.",
 };
 const DRILLS = [
-  { title:"Tee Work",          skill:"Hitting",      desc:"Set a batting tee (or a cone or bucket) in the yard and hit into a fence or net. 3 sets of 10 — keep a level swing and watch the ball all the way to the tee.", time:"15 min" },
-  { title:"Mirror Swings",     skill:"Hitting",      desc:"Take slow swings in front of a mirror with no ball. Check your stance, grip, and full follow-through. Builds muscle memory anywhere.", time:"10 min" },
-  { title:"Wall Ball Grounders", skill:"Fielding",   desc:"Throw a tennis or rubber ball against a wall and field the grounder that comes back. Stay low, glove out front, two hands. 25 reps.", time:"10 min" },
-  { title:"Short Hops",        skill:"Fielding",     desc:"Bounce a ball off a wall (or have a parent toss it) and field the short hop. Soft hands — give a little as you catch. 20 reps.", time:"10 min" },
-  { title:"Pop-Up Catches",    skill:"Fielding",     desc:"Toss the ball straight up and catch it above your forehead with two hands. Call 'Ball!' every time. 15 catches.", time:"8 min" },
-  { title:"Wrist Flips",       skill:"Throwing",     desc:"On one knee about 10 feet from a wall, flip the ball using only your wrist. Look for clean backspin and a straight line. 20 reps.", time:"8 min" },
-  { title:"Crow Hop Throws",   skill:"Throwing",     desc:"Crow hop and throw into a net, fence, or to a parent. Step toward your target and follow through across your body. 15 throws.", time:"10 min" },
-  { title:"Quick-Feet Ladder", skill:"Conditioning", desc:"Make a chalk or tape ladder on the driveway. Two feet in each box, then in-and-out. Builds the quick first step for fielding and base running.", time:"10 min" },
-  { title:"Base Running",      skill:"Conditioning", desc:"Sprint a hard run-through past first base, then practice a banana turn around a cone toward second. 6 sprints at full speed.", time:"10 min" },
+  { title:"Tee Work",          skill:"Hitting",      desc:"Set a batting tee (or a cone or bucket) in the yard and hit into a fence or net. 3 sets of 10 — keep a level swing and watch the ball all the way to the tee.", time:"15 min", video:"https://www.youtube.com/watch?v=_TICurMOZzo" },
+  { title:"Mirror Swings",     skill:"Hitting",      desc:"Take slow swings in front of a mirror with no ball. Check your stance, grip, and full follow-through. Builds muscle memory anywhere.", time:"10 min", video:"https://www.youtube.com/watch?v=tHgIGsBkODo" },
+  { title:"Wall Ball Grounders", skill:"Fielding",   desc:"Throw a tennis or rubber ball against a wall and field the grounder that comes back. Stay low, glove out front, two hands. 25 reps.", time:"10 min", video:"https://www.youtube.com/watch?v=2JjLfgZewkI" },
+  { title:"Short Hops",        skill:"Fielding",     desc:"Bounce a ball off a wall (or have a parent toss it) and field the short hop. Soft hands — give a little as you catch. 20 reps.", time:"10 min", video:"https://www.youtube.com/watch?v=nuvMnJ3RA3U" },
+  { title:"Pop-Up Catches",    skill:"Fielding",     desc:"Toss the ball straight up and catch it above your forehead with two hands. Call 'Ball!' every time. 15 catches.", time:"8 min", video:"https://www.youtube.com/watch?v=tvjqlF0o5Fk" },
+  { title:"Wrist Flips",       skill:"Throwing",     desc:"On one knee about 10 feet from a wall, flip the ball using only your wrist. Look for clean backspin and a straight line. 20 reps.", time:"8 min", video:"https://www.youtube.com/watch?v=uqbF3nIMKAE" },
+  { title:"Crow Hop Throws",   skill:"Throwing",     desc:"Crow hop and throw into a net, fence, or to a parent. Step toward your target and follow through across your body. 15 throws.", time:"10 min", video:"https://www.youtube.com/watch?v=leDIjfC1ib8" },
+  { title:"Quick-Feet Ladder", skill:"Conditioning", desc:"Make a chalk or tape ladder on the driveway. Two feet in each box, then in-and-out. Builds the quick first step for fielding and base running.", time:"10 min", video:"https://www.youtube.com/watch?v=Kb0bfAGiub8" },
+  { title:"Base Running",      skill:"Conditioning", desc:"Sprint a hard run-through past first base, then practice a banana turn around a cone toward second. 6 sprints at full speed.", time:"10 min", video:"https://www.youtube.com/watch?v=Hy5eE4Ac2mk" },
 ];
 const TABS = [
   { id:"home",     label:"Home",     ch:"H" },
@@ -650,6 +650,12 @@ function DrillsPage({ wide }){
                 </div>
               </div>
               <div style={{ fontFamily:F.b, fontSize:14, color:C.muted, lineHeight:1.65 }}>{d.desc}</div>
+              {d.video && (
+                <a href={d.video} target="_blank" rel="noopener noreferrer"
+                  style={{ display:"inline-flex", alignItems:"center", gap:7, marginTop:13, fontFamily:F.b, fontWeight:800, fontSize:12.5, letterSpacing:.4, color:C.cyan, textDecoration:"none" }}>
+                  <span style={{ fontSize:11 }}>▶</span> Watch on YouTube
+                </a>
+              )}
             </div>
           </Panel>
         ))}
